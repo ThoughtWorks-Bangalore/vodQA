@@ -23,11 +23,7 @@
         <link rel="stylesheet" href="css/icons/fontello-ie7.css" />
     <![endif] -->
 
-    <script src="js/custom.modernizr.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript">
-        console.log(jQuery('#googleform').contentWindow.document);
-    </script>
   </head>
   <body>
 
@@ -89,7 +85,7 @@
     <center>
         <br>
         <br>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfaPpkEeiRTc90y-5Bcaf2p-e9N_SRn9CfcaPsidjJIGpJ7hQ/viewform?embedded=true" width="760" height="2500" id="googleform" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfaPpkEeiRTc90y-5Bcaf2p-e9N_SRn9CfcaPsidjJIGpJ7hQ/viewform?embedded=true" width="760" height="2500" id="googleform" frameborder="0" marginheight="0" marginwidth="0" onload="resizeIframe()">Loading...</iframe>
     </center>
 </section>
     
@@ -208,6 +204,13 @@
         </div>
     </div>
 </footer>
+    <script type="text/javascript">
+        function resizeIframe() {
+            var googleFormIframe = document.getElementById('googleform');
+            googleFormIframe.height = googleFormIframe.contentWindow.document.body.scrollHeight+'px';
+            console.log(jQuery('#googleform').contentWindow.document);    
+        }
+    </script>
 
   </body>
 </html>
